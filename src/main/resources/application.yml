@@ -1,0 +1,24 @@
+server.port: 8081
+
+spring.data.mongodb:
+  host: 127.0.0.1
+  port: 27017
+  database: train
+#  username: test
+#  password: 123456
+
+cn.axboy.train:
+  train:
+    getStationUrl:    https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9025
+    queryInitUrl:     https://kyfw.12306.cn/otn/leftTicket/init
+    queryTicketUrl:   https://kyfw.12306.cn/otn/leftTicket/queryX
+
+  cert:
+    srcaKeyStore: classpath:cert/srca.keystore
+    srcaPassword: 123456
+
+  qiNiu:
+    accessKey: todo
+    secretKey: todo
+    bucket: todo
+    prefix: todo
