@@ -23,9 +23,6 @@ class InitDatabaseTests {
     private RestTemplate restTemplate
 
     @Autowired
-    private RestTemplate trainRestTemplate
-
-    @Autowired
     private StationRepo stationRepo
 
     @Autowired
@@ -36,7 +33,7 @@ class InitDatabaseTests {
         stationRepo.deleteAll()
     }
 
-    @Test
+    //@Test
     void start() {
         //截取等号后面数据，并去除单引号
         getStationStr()
@@ -61,6 +58,6 @@ class InitDatabaseTests {
 
     private String getStationStr() {
         String url = properties.train.getStationUrl
-        return trainRestTemplate.getForEntity(url, String).getBody()
+        return restTemplate.getForEntity(url, String).getBody()
     }
 }
