@@ -12,7 +12,9 @@ class HashCryptUtil {
     static String getMD5(byte[] bytes) {
         MessageDigest digest = MessageDigest.getInstance("MD5")
         digest.update(bytes, 0, bytes.length)
-        return byteArray2HexString(digest.digest())
+        BigInteger bigInt = new BigInteger(1, digest.digest())
+        String md5 = bigInt.toString(16)
+        return md5.length() == 32 ? md5 : "0" + md5
     }
 
     static String getMD5(String text) {
@@ -20,19 +22,5 @@ class HashCryptUtil {
             return null
         }
         return getMD5(text.getBytes())
-    }
-
-    //转化BYTE数组为16进制字符串
-    private static String byteArray2HexString(byte[] data) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : data) {
-            String s = Integer.toHexString(b & 0xff);
-            if (s.length() == 1) {
-                sb.append("0" + s);
-            } else {
-                sb.append(s);
-            }
-        }
-        return sb.toString();
     }
 }
