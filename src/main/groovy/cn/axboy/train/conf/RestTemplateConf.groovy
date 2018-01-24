@@ -43,10 +43,9 @@ class RestTemplateConf {
 
     @Bean
     HttpClient trainHttpClient() {
-        //String file = "D:\\work\\ali-repo\\app-train\\src\\main\\resources\\train\\srca.keystore"
         String password = properties.cert.srcaPassword
         KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType())
-        InputStream is = properties.cert.srcaKeyStore.getInputStream()     //new FileInputStream(new File(file))
+        InputStream is = properties.cert.srcaKeyStore.getInputStream()
         trustStore.load(is, password.toCharArray())
         is.close()
         SSLContext sslContext = SSLContexts.custom()

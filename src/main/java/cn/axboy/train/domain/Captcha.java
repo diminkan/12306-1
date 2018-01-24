@@ -35,5 +35,5 @@ public class Captcha {
     /**
      * 验证码答案
      */
-    private List<Integer> answer;
+    private String answer;
 }

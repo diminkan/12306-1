@@ -1,3 +1,3 @@
 ### 12306
 
-hello world
+-ea -Dspring.profiles.active=default,dev

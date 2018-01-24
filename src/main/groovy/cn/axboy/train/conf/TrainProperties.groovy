@@ -17,6 +17,7 @@ class TrainProperties {
     final Train train = new Train()
     final Cert Cert = new Cert()
     final QiNiu qiNiu = new QiNiu()
+    final Dama2 dama2 = new Dama2()
 
     static class Train {
         String getStationUrl
@@ -34,5 +35,14 @@ class TrainProperties {
         String secretKey
         String bucket
         String prefix
+    }
+
+    static class Dama2 {
+        String appId
+        String appKey
+        String username
+        String password
+        String solveByImgFile
+        String solveByImgUrl
     }
 }

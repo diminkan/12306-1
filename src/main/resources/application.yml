@@ -9,9 +9,9 @@ spring.data.mongodb:
 
 cn.axboy.train:
   train:
-    getStationUrl:    https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9025
+    getStationUrl:    https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9046
     queryInitUrl:     https://kyfw.12306.cn/otn/leftTicket/init
-    queryTicketUrl:   https://kyfw.12306.cn/otn/leftTicket/queryX
+    queryTicketUrl:   https://kyfw.12306.cn/otn/leftTicket/queryZ
 
   cert:
     srcaKeyStore: classpath:cert/srca.keystore
@@ -22,3 +22,11 @@ cn.axboy.train:
     secretKey: todo
     bucket: todo
     prefix: todo
+
+  dama2:
+    appId: todo
+    appKey: todo
+    username: todo
+    password: todo
+    solveByImgFile: http://api.dama2.com:7766/app/d2File
+    solveByImgUrl: http://api.dama2.com:7766/app/d2Url
