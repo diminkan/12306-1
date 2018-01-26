@@ -30,3 +30,6 @@ cn.axboy.train:
     password: todo
     solveByImgFile: http://api.dama2.com:7766/app/d2File
     solveByImgUrl: http://api.dama2.com:7766/app/d2Url
+
+  reminder:
+    dingTalkRobot: todo

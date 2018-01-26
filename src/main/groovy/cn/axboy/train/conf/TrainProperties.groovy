@@ -18,6 +18,7 @@ class TrainProperties {
     final Cert Cert = new Cert()
     final QiNiu qiNiu = new QiNiu()
     final Dama2 dama2 = new Dama2()
+    final Reminder reminder = new Reminder()
 
     static class Train {
         String getStationUrl
@@ -44,5 +45,9 @@ class TrainProperties {
         String password
         String solveByImgFile
         String solveByImgUrl
+    }
+
+    static class Reminder {
+        String dingTalkRobot
     }
 }
