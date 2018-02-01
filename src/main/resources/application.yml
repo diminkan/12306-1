@@ -12,6 +12,7 @@ cn.axboy.train:
     getStationUrl:    https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9046
     queryInitUrl:     https://kyfw.12306.cn/otn/leftTicket/init
     queryTicketUrl:   https://kyfw.12306.cn/otn/leftTicket/queryZ
+    getCaptchaUrl:    https://kyfw.12306.cn/passport/captcha/captcha-image?login_site=E&module=login&rand=sjrand&0.6563676751765428
 
   cert:
     srcaKeyStore: classpath:cert/srca.keystore

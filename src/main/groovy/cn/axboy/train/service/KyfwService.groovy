@@ -1,11 +1,14 @@
 package cn.axboy.train.service
 
 import cn.axboy.train.conf.TrainProperties
+import cn.axboy.train.domain.Captcha
+import cn.axboy.train.repo.CaptchaRepo
 import cn.axboy.train.service.model.QueryResp
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
+import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestClientException
 import org.springframework.web.client.RestTemplate
@@ -23,6 +26,12 @@ class KyfwService {
 
     @Autowired
     private TrainProperties properties
+
+    @Autowired
+    private QiNiuService qiNiuService
+
+    @Autowired
+    private CaptchaRepo captchaRepo
 
     private static String JSESSIONID = null
     private static String ROUTE = null
@@ -96,6 +105,27 @@ class KyfwService {
 //                "_jc_save_fromDate=2017-10-06; " +
 //                "_jc_save_toDate=2017-09-12; " +
 //                "_jc_save_wfdc_flag=dc"
+    }
+
+    /**
+     * 获取验证码，并保存到七牛云
+     * @return
+     */
+    String getCaptcha() {
+        def url = properties.train.getCaptchaUrl
+        HttpHeaders headers = new HttpHeaders()
+        headers.setContentType(MediaType.IMAGE_JPEG)
+        headers.add("Cookie", getCookie(false))
+        def resp = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<byte[]>(headers), byte[])
+        byte[] result = resp.getBody()
+        String key = qiNiuService.uploadByByteArray(result)
+
+        Captcha captcha = new Captcha()
+        captcha.id = key
+        captcha.md5 = key
+        captcha.imgUrl = properties.qiNiu.prefix + key
+        captchaRepo.save(captcha)
+        return captcha.imgUrl
     }
 
 }

@@ -30,7 +30,7 @@ class QiNiuService {
         if (bytes == null || bytes.length == 0) {
             return null
         }
-        def filename = HashCryptUtil.getMD5(bytes)
+        def filename = '/12306/' + HashCryptUtil.getMD5(bytes)
         Auth auth = Auth.create(properties.qiNiu.accessKey, properties.qiNiu.secretKey)
         String upToken = auth.uploadToken(properties.qiNiu.bucket)
         try {

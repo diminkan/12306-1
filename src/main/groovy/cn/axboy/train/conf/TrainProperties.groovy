@@ -24,6 +24,7 @@ class TrainProperties {
         String getStationUrl
         String queryInitUrl
         String queryTicketUrl
+        String getCaptchaUrl
     }
 
     static class Cert {
